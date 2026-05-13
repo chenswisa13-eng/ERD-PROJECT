@@ -4,11 +4,12 @@ import { registerForCourse, unregisterFromCourse } from '../hooks/useFirestore';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from './Toast';
 
+
 const SUBJECT_COLORS = {
-  cs:   'from-blue-600/20 to-indigo-600/20 hover:from-blue-600/30 hover:to-indigo-600/30',
-  ma:   'from-purple-600/20 to-violet-600/20 hover:from-purple-600/30 hover:to-violet-600/30',
-  ph:   'from-cyan-600/20 to-teal-600/20 hover:from-cyan-600/30 hover:to-teal-600/30',
-  en:   'from-amber-600/20 to-orange-600/20 hover:from-amber-600/30 hover:to-orange-600/30',
+  cs: 'from-blue-600/20 to-indigo-600/20 hover:from-blue-600/30 hover:to-indigo-600/30',
+  ma: 'from-purple-600/20 to-violet-600/20 hover:from-purple-600/30 hover:to-violet-600/30',
+  ph: 'from-cyan-600/20 to-teal-600/20 hover:from-cyan-600/30 hover:to-teal-600/30',
+  en: 'from-amber-600/20 to-orange-600/20 hover:from-amber-600/30 hover:to-orange-600/30',
   default: 'from-primary-600/10 to-purple-600/10 hover:from-primary-600/20 hover:to-purple-600/20',
 };
 
@@ -24,7 +25,7 @@ const CREDIT_COLORS = {
 };
 
 export default function CourseCard({ course, instructorName, enrolled, onEnrollChange }) {
-  const { student }  = useAuth();
+  const { student } = useAuth();
   const { addToast } = useToast();
   const [busy, setBusy] = useState(false);
 
@@ -60,7 +61,7 @@ export default function CourseCard({ course, instructorName, enrolled, onEnrollC
     }
   };
 
-  const gradient    = getSubjectGradient(course.id);
+  const gradient = getSubjectGradient(course.id);
   const creditColor = CREDIT_COLORS[course.credits] ?? CREDIT_COLORS[3];
   const creditLabel = `${course.credits} נק"ז`;
 
